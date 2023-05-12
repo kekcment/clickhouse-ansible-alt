@@ -1,0 +1,40 @@
+
+;; Old version (before node..)
+;; [clickhouse-cluster]
+;; 192.168.33.18
+;; 192.168.33.23
+;; 192.168.33.24
+;; 192.168.33.38
+
+[node1]
+; tst-alt-clk-d1
+192.168.33.18
+
+[node2]
+; tst-alt-clk-d2
+192.168.33.23
+
+[node3]
+; tst-alt-clk-d3
+192.168.33.24
+
+[node4]
+; tst-alt-clk-d4
+192.168.33.38
+
+[clickhouse-cluster:children]
+node1
+node2
+node3
+node4
+
+[zookeeper-nodes]
+192.168.33.40
+
+[clk:children]
+clickhouse-cluster
+zookeeper-nodes
+
+[clk:vars]
+ansible_user=localadmin
+ansible_ssh_private_key_file=~/.ssh/do_test_key
