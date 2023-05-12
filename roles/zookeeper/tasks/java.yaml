@@ -1,0 +1,8 @@
+# install java just from source
+
+- name: install java 11
+  apt_rpm:
+    name: "{{ java_version }}"
+    state: present
+    update_cache: yes
+  become: true

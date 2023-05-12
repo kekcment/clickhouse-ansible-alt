@@ -1,0 +1,17 @@
+- name: install Clickhouse server
+  apt_rpm:
+    name: "clickhouse-server"
+    state: present
+  become: true
+
+- name: install Clickhouse client
+  apt_rpm:
+    name: "clickhouse-client"
+    state: present
+  become: true
+
+- name: ensure that ClickHouse is running
+  systemd:
+    state: started
+    name: clickhouse-server
+  become: true

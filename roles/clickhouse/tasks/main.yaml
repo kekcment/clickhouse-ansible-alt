@@ -1,0 +1,2 @@
+- include: install-clickhouse.yaml
+- include: configure-clickhouse.yaml

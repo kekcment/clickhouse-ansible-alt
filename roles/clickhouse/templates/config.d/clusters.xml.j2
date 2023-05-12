@@ -1,0 +1,32 @@
+{% if enable_cluster == true %}
+<yandex>
+    <remote_servers>
+        <cluster_2shards_2replicas>
+            <shard>
+                <replica>
+                    <default_database>shard</default_database>
+                    <host>{{ groups['clickhouse-cluster'][0] }}</host>
+                    <port>9000</port>
+                </replica>
+                <replica>
+                    <default_database>replica</default_database>
+                    <host>{{ groups['clickhouse-cluster'][1] }}</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
+            <shard>
+                <replica>
+                    <default_database>shard</default_database>
+                    <host>{{ groups['clickhouse-cluster'][2] }}</host>
+                    <port>9000</port>
+                </replica>
+                <replica>
+                    <default_database>replica</default_database>
+                    <host>{{ groups['clickhouse-cluster'][3] }}</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
+        </cluster_4shards_2replicas>
+    </remote_servers>
+</yandex>
+{% endif %}

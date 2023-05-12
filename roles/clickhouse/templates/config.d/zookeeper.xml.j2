@@ -1,0 +1,11 @@
+{% if  enable_zk_config == true %}
+<yandex>
+    <zookeeper>
+          <node index="1">
+            <host>{{ groups['zookeeper-nodes'][0] }}</host>
+            <port>2181</port>
+          </node>
+    </zookeeper>
+
+</yandex>
+{% endif %}
